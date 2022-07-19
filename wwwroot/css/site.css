@@ -1,0 +1,42 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+thead{
+    padding: 0 50px;
+}
+
+.list-table{
+    text-align: center;
+}
+
+.name-table {
+    width: 20%;
+}
+
+.description-table {
+    width: 30%;
+}
+
+.img-table{
+    width: 30%;
+}
+
+.price-table {
+    width: 20%;
+}

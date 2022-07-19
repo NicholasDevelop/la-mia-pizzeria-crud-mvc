@@ -1,0 +1,63 @@
+﻿@using la_mia_pizzeria_static.Data
+@*@using static la_mia_pizzeria_static.Controllers.PizzaController;*@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    Layout = null;
+}
+
+@*@{
+    List<la_mia_pizzeria_static.Models.Pizza> pizzaList = new List<la_mia_pizzeria_static.Models.Pizza>();
+    pizzaList.Add(new("Margherita", "pomodoro, mozzarella", "https://rs-menus-api.roocdn.com/images/99f775f0-f4b5-41cb-a99c-332e265cbd83/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop", 3.50));
+    pizzaList.Add(new("Quattro formaggi", "Fiordilatte di Agerola, Toma, Provolone del Monaco DOP, Gorgonzola DOP, Basilico, Olio EVO", "https://rs-menus-api.roocdn.com/images/8fea9476-3d41-48ba-a174-8a16b0a6a2f8/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop", 12.50));
+    pizzaList.Add(new("Crudo di Norcia", "Pomodoro La Fiammante BIO, Fiordilatte di Agerola, Prosciutto Crudo di Norcia Renzini IGP, Gocce di parmigiano, Basilico, Olio EVO", "https://rs-menus-api.roocdn.com/images/05de12cd-7196-4278-a772-7df96f4cdf3b/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop", 12.50));
+    pizzaList.Add(new("Amatriciana", "Salsa di pomodoro fresco, Guanciale, Scaglie di Pecorino, Basilico, Olio EVO", "https://rs-menus-api.roocdn.com/images/a8bc2787-3945-4e21-83ca-9c3520917bff/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop", 11.00));
+    pizzaList.Add(new("Porcino Stammi Vicino", "Crema di funghi porcini, Friarielli, Mandorle a lamelle, Glassa di aceto balsamico, Basilico, Olio EVO", "https://rs-menus-api.roocdn.com/images/b1e5b7b8-a70f-45ad-b085-9f96c5ccb5fa/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop", 11.00));    
+
+using(PizzeriaContext db = new PizzeriaContext())
+    {
+
+        Pizza margherita = new Pizza("Margherita", "pomodoro, mozzarella, basilico", "https://rs-menus-api.roocdn.com/images/99f775f0-f4b5-41cb-a99c-332e265cbd83/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop", 3.50);
+        db.Add(margherita);
+        Pizza quattroFormaggi = new Pizza("Quattro formaggi", "Fiordilatte di Agerola, Toma, Provolone del Monaco DOP, Gorgonzola DOP, Basilico, Olio EVO", "https://rs-menus-api.roocdn.com/images/8fea9476-3d41-48ba-a174-8a16b0a6a2f8/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop", 12.50);
+        db.Add(quattroFormaggi);
+        Pizza crudoDiNorcia = new Pizza("Crudo di Norcia", "Pomodoro La Fiammante BIO, Fiordilatte di Agerola, Prosciutto Crudo di Norcia Renzini IGP, Gocce di parmigiano, Basilico, Olio EVO", "https://rs-menus-api.roocdn.com/images/05de12cd-7196-4278-a772-7df96f4cdf3b/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop", 12.50);
+        db.Add(crudoDiNorcia);
+        Pizza amatriciana = new Pizza("Amatriciana", "Salsa di pomodoro fresco, Guanciale, Scaglie di Pecorino, Basilico, Olio EVO", "https://rs-menus-api.roocdn.com/images/a8bc2787-3945-4e21-83ca-9c3520917bff/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop", 11.00);
+        db.Add(amatriciana);
+        Pizza porcinoStammiVicino = new Pizza("Porcino Stammi Vicino", "Crema di funghi porcini, Friarielli, Mandorle a lamelle, Glassa di aceto balsamico, Basilico, Olio EVO", "https://rs-menus-api.roocdn.com/images/b1e5b7b8-a70f-45ad-b085-9f96c5ccb5fa/image.jpeg?width=543&height=305&auto=webp&format=jpg&fit=crop", 11.00);
+        db.Add(porcinoStammiVicino);
+        db.SaveChanges();
+    }
+}*@
+
+@*<head>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<h1>Da Niko - Pizzeria</h1>
+<p>Le Migliori pizze che puoi desiderare</p>
+
+<h2>Le nostre pizze:</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tipo di pizza</th>
+            <th>Descrizione</th>
+            <th>Foto</th>
+            <th>Prezzo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(la_mia_pizzeria_static.Models.Pizza pizza in pizzaList)
+        {
+            <tr class="list-table">
+                <td class="name-table">@pizza.Name</td>
+                <td class="description-table">@pizza.Description</td>
+                <td class="img-table"><img src="@pizza.Img"/></td>
+                <td class="price-table">@pizza.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>*@
