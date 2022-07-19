@@ -4,14 +4,25 @@ namespace la_mia_pizzeria_static.ValidationAttributes
 {
     internal class FiveWordsValidationAttribute : ValidationAttribute
     {
-        protected override ValidationResult IsValid(
-            object value, ValidationContext validationContext)
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            string fieldValue = (string)value;
+            string description = (string)value;
+            int counterSpaces = 0;
 
-            if(fieldValue == null || fieldValue.Trim().IndexOf(" ") <= 4)
+            if(description != null)
             {
-                return new ValidationResult("Il campo deve contenere almeno 5 parole");
+                foreach(char c in description.Trim())
+                {
+                    if(c.Equals(' '))
+                    {
+                        counterSpaces++;
+                    }
+                }
+            }
+
+            if(counterSpaces < 4)
+            {
+                return new ValidationResult("La descrizione deve avere almeno 5 parole");
             }
 
             return ValidationResult.Success;
