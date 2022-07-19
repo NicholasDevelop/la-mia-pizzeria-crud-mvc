@@ -28,6 +28,11 @@ namespace la_mia_pizzeria_static.Models
         public double Price { get; set; }
 
 
+        //**CAMPI CHIAVE ESTERNA**
+        public int? CategoryId { get; set; }
+        public Category? Category { get; set; }
+
+
         public Pizza()
         {
 
