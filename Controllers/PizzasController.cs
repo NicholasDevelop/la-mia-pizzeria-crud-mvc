@@ -57,6 +57,51 @@ namespace la_mia_pizzeria_static.Controllers
         {
             return View("Create");
         }
-        
+
+
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            using(PizzeriaContext context = new PizzeriaContext())
+            {
+                Pizza pizza = context.Pizzas.Where(p => p.Id == id).FirstOrDefault();
+                //Pizza pizza = (from p in context.Pizzas where p.Id == id select p).FirstOrDefault();
+                if(pizza == null)
+                {
+                    return NotFound();
+                }
+
+                return View(pizza);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(int id, Pizza pizza)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(pizza);
+            }
+
+            using(PizzeriaContext context = new PizzeriaContext())
+            {
+                Pizza editPizza = context.Pizzas.Where(p => p.Id == id).FirstOrDefault();
+
+                if(editPizza == null)
+                {
+                    return NotFound();
+                }
+
+                editPizza.Name = pizza.Name;
+                editPizza.Description = pizza.Description;
+                editPizza.Price = pizza.Price;
+                editPizza.Img = pizza.Img;
+
+                context.SaveChanges();
+
+                return RedirectToAction("index");
+            }
+        }
     }
 }
