@@ -46,16 +46,17 @@ using(PizzeriaContext db = new PizzeriaContext())
             <tr class="list-table">
                 <td class="name-table p-2">@pizza.Name</td>
                 <td class="description-table p-2">@pizza.Description</td>
-                <td class="img-table p-2"><img class="w-100" src="@pizza.Img"/></td>
+                <td class="img-table p-2"><img class="w-100" height="150px" src="@pizza.Img"/></td>
                 <td class="price-table p-2">@pizza.Price</td>
                 <td><a href="@Url.Action("Detail", "Pizzas", new {@pizza.Id})"><button class="btn btn-sm btn-info">Visualizza Pizza</button></a></td>
                 <td><a href="@Url.Action("Update", "Pizzas", new {@pizza.Id})"><button class="btn btn-sm btn-warning">Modifica Pizza</button></a></td>
-                <form asp-controller="Pizza" asp-action="Delete" asp-route-id="@pizza.Id" method="post">
-                    @Html.AntiForgeryToken()
-                    <button type="submit" class="btn btn-sm btn-danger">
-                        Elimina Pizza
-                    </button>
-                </form>
+                <td><form asp-controller="Pizzas" asp-action="Delete" asp-route-id="@pizza.Id" method="post">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Elimina Pizza
+                        </button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
