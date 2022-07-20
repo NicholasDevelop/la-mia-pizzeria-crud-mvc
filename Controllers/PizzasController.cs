@@ -88,7 +88,7 @@ namespace la_mia_pizzeria_static.Controllers
                 model.Pizza = pizza;
                 model.Categories = context.Categories.ToList();
 
-                return View(pizza);
+                return View(model);
             }
         }
 
@@ -105,7 +105,7 @@ namespace la_mia_pizzeria_static.Controllers
                 }
 
                 Pizza editPizza = context.Pizzas.Where(p => p.Id == id).FirstOrDefault();
-
+                  
                 if(editPizza == null)
                 {
                     return NotFound();
@@ -115,6 +115,7 @@ namespace la_mia_pizzeria_static.Controllers
                 editPizza.Description = data.Pizza.Description;
                 editPizza.Price = data.Pizza.Price;
                 editPizza.Img = data.Pizza.Img;
+                editPizza.CategoryId = data.Pizza.CategoryId;
 
                 context.SaveChanges();
 

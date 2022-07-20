@@ -13,7 +13,7 @@
 
         <div class="mb-3">
             <strong>Descrizione:</strong>
-            <input asp-for="Pizza.Description" class="d-block w-100" />
+            <textarea asp-for="Pizza.Description" rows="5" class="d-block w-100"></textarea>
             <span asp-validation-for="Pizza.Description" class="text-danger"></span>
         </div>
 
@@ -31,13 +31,13 @@
 
         <div class="mb-4">
             <strong>Categoria:</strong>
-            <select asp-for="Pizza.CategoryId" rows="10" class="d-block w-100" />
+            <select asp-for="Pizza.CategoryId" class="d-block w-100" />
                 <option value=""></option>
                 @foreach (Category category in Model.Categories)
                 {
                     @if(Model.Pizza.CategoryId == category.Id)
                     {
-                        <option value="@category.Id" selected=@category.Name></option>
+                        <option value="@category.Id" selected>@category.Name</option>
                     }
                     else
                     {
@@ -45,7 +45,7 @@
                     }
             }
             </select>
-            <span asp-validation-for="Pizza.CategoryId" class="text-danger"></span>
+            @*<span asp-validation-for="Pizza.CategoryId" class="text-danger"></span>*@
         </div>
 
         <div class="text-end">
