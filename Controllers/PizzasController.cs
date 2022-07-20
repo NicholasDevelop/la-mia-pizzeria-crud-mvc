@@ -22,11 +22,11 @@ namespace la_mia_pizzeria_static.Controllers
                 Pizza current = context.Pizzas.Where(pizza => pizza.Id == id).FirstOrDefault();
                 if(current == null)
                 {
-                    return NotFound();
+                    return NotFound($"Il post con id {id} non è stato trovato!");
                 }
                 else
                 {
-                    return View(current);
+                    return View("Detail", current);
                 }
             }
         }
@@ -55,7 +55,17 @@ namespace la_mia_pizzeria_static.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View("Create");
+            using (PizzeriaContext context = new PizzeriaContext())
+            {
+                List<Category> categories = context.Categories.ToList();
+
+                PizzaCategories model = new PizzaCategories();
+
+                model.Categories = categories;
+                model.Pizza = new Pizza();
+
+                return View(model);
+            }
         }
 
 
