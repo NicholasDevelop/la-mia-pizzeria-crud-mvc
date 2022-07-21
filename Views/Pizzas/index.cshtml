@@ -61,7 +61,7 @@ using(PizzeriaContext db = new PizzeriaContext())
                     @if(pizza.Ingredients != null){
                         foreach(Ingredient i in pizza.Ingredients)
                         {
-                            <p>@i.Name</p>                            
+                            <span>@i.Name, </span>                            
                         }
                     }
                     else{
