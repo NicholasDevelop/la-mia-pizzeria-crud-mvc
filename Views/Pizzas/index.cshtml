@@ -32,9 +32,10 @@ using(PizzeriaContext db = new PizzeriaContext())
 <table>
     <thead>
         <tr>
-            <th class="text-center">Tipo di pizza</th>
+            <th class="text-center">Pizza</th>
             <th class="text-center">Descrizione</th>
             <th class="text-center">Categoria</th>
+            <th class="text-center">Ingredienti</th>
             <th class="text-center">Foto</th>
             <th class="text-center">Prezzo</th>
             <th class="text-center">Visualizza</th>
@@ -47,13 +48,24 @@ using(PizzeriaContext db = new PizzeriaContext())
         {
             <tr class="list-table">
                 <td class="name-table p-2">@pizza.Name</td>
-                @*<td class="description-table p-2">@pizza.Description</td>*@
+                <td class="description-table p-2">@pizza.Description</td>
                 <td class="category-table p-2">
                     @if(pizza.Category != null){
                          <p>@pizza.Category.Name</p>
                     }
                     else{
                          <p>Categoria assente</p>     
+                    }
+                </td>
+                <td class="ingredient-table p-2">
+                    @if(pizza.Ingredients != null){
+                        foreach(Ingredient i in pizza.Ingredients)
+                        {
+                            <p>@i.Name</p>                            
+                        }
+                    }
+                    else{
+                         <p>Nessun ingrediente selezionato</p>     
                     }
                 </td>
                 <td class="description-table p-2">@pizza.Description</td>

@@ -12,6 +12,15 @@
         else{
             <p>N.D</p>
         }
+        @if(@Model.Ingredients != null){
+            foreach(Ingredient i in @Model.Ingredients)
+            {
+                <p>@i.Name</p>                            
+            }
+        }
+        else{
+            <p>Nessun ingrediente selezionato</p>     
+        }
         <p>@Model.Description</p>
         <p>@Model.Price euro</p>
     </div>
