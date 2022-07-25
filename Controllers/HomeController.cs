@@ -15,7 +15,7 @@ namespace la_mia_pizzeria_static.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("Index", "Pizzas");
         }
 
         public IActionResult Privacy()

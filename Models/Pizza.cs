@@ -1,10 +1,12 @@
 ﻿using la_mia_pizzeria_static.ValidationAttributes;
+using Microsoft.AspNetCore.Authorization;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace la_mia_pizzeria_static.Models
 {
     [Table("pizza")]
+    [Authorize]
     public class Pizza
     {
         [Key]
